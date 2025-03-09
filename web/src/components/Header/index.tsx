@@ -1,4 +1,4 @@
-// import { NavLink } from "react-router";
+import { NavLink } from "react-router";
 import { FontAwesomeIcon } from "../../lib/fontawesome";
 import {
   faMagnifyingGlass,
@@ -11,22 +11,21 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <p>Puc Dad Joke</p>
+      
       <div className={styles.links}>
-        {/* Using NavLink from react-router to add active class */}
-        <a>
+        <NavLink className={({ isActive }) => (isActive ? styles.active : "")} to="/">
           <FontAwesomeIcon icon={faShuffle} />
-          Random joke
-        </a>
+          Piada Aleatória
+        </NavLink>
 
-        <a>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-          Search jokes
-        </a>
+        <NavLink to="search" className={({ isActive }) => (isActive ? styles.active : "")}>
+        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+          Pesquisar piadas
+        </NavLink>
 
-        <a>
-          <FontAwesomeIcon icon={faPenToSquare} />
-          Submit new joke
-        </a>
+        <NavLink to="submit" className={({ isActive }) => (isActive ? styles.active : "")}><FontAwesomeIcon icon={faPenToSquare} />
+          Enviar nova piada
+        </NavLink>
       </div>
     </header>
   );
